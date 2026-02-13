@@ -1,0 +1,139 @@
+@import "tailwindcss" layer(tailwind);
+
+@layer tailwind {
+  @theme {
+    --color-background: #fafafa;
+    --color-foreground: #171717;
+    --color-primary: #4294d8;
+    --color-border: #e6e4e2;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   HOLO — Global Design Tokens & Reset
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* Colors */
+  --bg: #fafafa;
+  --bg-white: #ffffff;
+  --bg-dark: #171717;
+  --bg-dark-card: #1e1e1e;
+  --blue: #4294d8;
+  --blue-hover: #3580c0;
+  --text-primary: #171717;
+  --text-secondary: #6b6966;
+  --text-tertiary: #a7a3a0;
+  --text-white: #fffffa;
+  --text-on-dark: #a7a3a0;
+  --border: #e6e4e2;
+  --border-dark: #2a2928;
+  --green: #00b22d;
+  --green-bg: #f0fff4;
+
+  /* Typography */
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+
+  /* Spacing */
+  --section-pad-y: 80px;
+  --section-pad-x: 16px;
+  --max-width: 1200px;
+  --radius: 24px;
+  --radius-sm: 16px;
+  --radius-xs: 12px;
+  --radius-pill: 999px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.3s;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-pad-x);
+}
+
+.section {
+  padding: var(--section-pad-y) 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+@keyframes testimonial-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes map-dot-sweep {
+  from { opacity: 0; }
+  to { opacity: 0.78; }
+}
+
+@keyframes map-dot-shimmer {
+  0%, 100% { opacity: 0.78; }
+  35% { opacity: 0.48; }
+  70% { opacity: 0.88; }
+}
