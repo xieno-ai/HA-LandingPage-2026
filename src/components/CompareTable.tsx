@@ -10,9 +10,9 @@ type Row = {
 
 const rows: Row[] = [
   { feature: 'Canadian-owned medical alert provider', holo: true, others: false },
-  { feature: 'Longest battery life of any mobile medical alert in Canada', holo: true, others: false },
-  { feature: 'Caregiver app with real-time location sharing', holo: true, others: false },
-  { feature: 'Clear, upfront pricing on website', holo: true, others: false },
+  { feature: 'Longest battery life: up to 7 days without charging', holo: true, others: false },
+  { feature: 'Caregiver app: see your loved one\u2019s location anytime', holo: true, others: false },
+  { feature: 'Clear pricing: no hidden fees or surprise costs', holo: true, others: false },
   { feature: 'Free shipping across Canada', holo: true, others: false },
   { feature: '30-day satisfaction guarantee', holo: true, others: false },
   { feature: 'Automatic fall detection', holo: true, others: true },

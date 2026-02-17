@@ -43,7 +43,7 @@ export default function Hero() {
             </motion.h1>
             <motion.div className="hero-split__divider" variants={itemVariants} />
             <motion.p className="hero-split__subtitle" variants={itemVariants}>
-              Whether you're looking out for a loved one or for yourself, Holo Alert is the simple, reliable way to stay connected to help — with 24/7 monitoring, automatic fall detection, and location tracking built into a device that's comfortable enough to wear every day.
+              Whether you're looking out for a loved one or for yourself, Holo Alert keeps you connected to help, 24/7. Automatic fall detection, GPS location, and two-way voice built into a device light enough to forget you're wearing.
             </motion.p>
             <motion.div className="hero-split__actions" variants={itemVariants}>
               <a href="#pricing" className="btn btn--dark" onClick={() => trackCtaClick('Explore Our Devices', 'hero')}>Explore Our Devices</a>

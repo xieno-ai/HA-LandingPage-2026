@@ -6,7 +6,7 @@ const steps = [
     icon: <Watch size={24} />,
     title: 'Find the right fit for your lifestyle.',
     description:
-      'Pendant, wristband, or smartwatch — pick what\'s comfortable and what you\'ll actually want to wear. Every device ships free and comes with professional monitoring included.',
+      'Pendant, wristband, or smartwatch. Pick what\'s comfortable and what you\'ll want to wear. Every device ships free and comes with professional monitoring included.',
     benefits: [
       'GPS location, fall detection & two-way voice',
       'Water-resistant with multi-day battery life',
@@ -17,21 +17,21 @@ const steps = [
     icon: <PackageCheck size={24} />,
     title: 'Ready to go the moment it arrives.',
     description:
-      'We set everything up before your device ships — so when it arrives, just take it out of the box. Our care team will call you to do a quick test together, make sure everything\'s working, and answer any questions.',
+      'We set everything up before your device ships, so when it arrives, just take it out of the box. Our care team calls within 24 hours to do a quick test together, make sure everything\'s working, and answer any questions.',
     benefits: [
-      'Arrives ready to go — no setup required',
+      'Arrives ready to go: no setup required',
       'Care team calls to walk you through a quick test',
       'Ask questions and get comfortable before you start',
     ],
   },
   {
     icon: <HeartPulse size={24} />,
-    title: 'Help responds — even if you can\'t press the button.',
+    title: 'Help responds, even if you can\'t press the button.',
     description:
       'Press the SOS button and a trained operator responds with your medical profile on hand. And if you fall and can\'t reach the button, automatic fall detection connects you to help on its own. It works anywhere in Canada with cellular coverage.',
     benefits: [
       '24/7 professional monitoring, coast to coast',
-      'Automatic fall detection connects you even if you can\'t press the button',
+      'Falls detected automatically. No button press, no delay',
       'Your care circle is notified',
     ],
   },
@@ -55,7 +55,7 @@ export default function HowItWorks() {
         >
           <h2 className="how__title">Getting started is the easy part.</h2>
           <p className="how__subtitle">
-            No complicated installs, no confusing tech. Pick a device, set it up in a few minutes, and know that 24/7 professional help is always one button away.
+            No installs. No base station. No confusing tech. Pick a device, and 24/7 professional help is one button away from the moment it arrives.
           </p>
         </motion.div>
 

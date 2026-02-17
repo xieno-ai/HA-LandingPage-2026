@@ -8,12 +8,12 @@ const devices = [
     name: 'Holo Mini',
     category: 'Wristband',
     description:
-      'Simple, lightweight, and built for all-day comfort. Wear it on your wrist, on a lanyard, or clipped to your belt — whatever feels right.',
+      'At just 1.2 oz, you\'ll forget it\'s there. Wear it on your wrist, on a lanyard, or clipped to your belt, whatever feels right.',
     features: [
       'Lightweight wristband design (1.2 oz)',
       'Automatic fall detection',
       'Up to 7-day battery life',
-      'Water-resistant — safe for showering',
+      'Water-resistant: safe for showering',
     ],
     dailyPrice: '1.83',
     monthlyPrice: '54.95',
@@ -26,10 +26,10 @@ const devices = [
     name: 'Holo Pro',
     category: 'Pendant | Most Popular',
     description:
-      'Our most popular device. Compact enough to wear around your neck and forget about — until you need it.',
+      'Our most popular device. Compact enough to wear around your neck and forget about, until you need it.',
     features: [
       'Compact pendant design (1.3 oz)',
-      'Automatic fall detection — always on',
+      'Automatic fall detection: always on',
       'Up to 3-day battery life',
       'Optional caregiver app with real-time location',
     ],
@@ -115,7 +115,7 @@ function ComparisonBars() {
       variants={fadeUp}
     >
       <h3 className="pricing__savings-title">
-        The safety they need, at a fraction of the cost.
+        Safety and independence, at a fraction of the cost.
       </h3>
 
       <div className="pricing__comparison-bars">
@@ -277,6 +277,7 @@ export default function Pricing() {
                       <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </a>
+                  <span className="pricing__risk-note">30-day money-back guarantee. Cancel anytime.</span>
                 </div>
               </HoverBorderGradient>
             </motion.div>
@@ -291,7 +292,7 @@ export default function Pricing() {
           viewport={{ once: true, margin: '-60px' }}
           variants={fadeUp}
         >
-          <p className="pricing__benefits-label">Every plan includes</p>
+          <p className="pricing__benefits-label">Every device includes</p>
           <div className="pricing__benefits-grid">
             {benefits.map((b, i) => (
               <div key={i} className="pricing__benefit">

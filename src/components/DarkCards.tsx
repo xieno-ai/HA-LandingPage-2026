@@ -30,9 +30,9 @@ export default function DarkCards() {
 
             {/* Text content overlaid on top */}
             <div className="dark-card__content dark-card__content--over">
-              <p className="dark-card__label">Coast to coast coverage.</p>
+              <p className="dark-card__label">Coast to coast.</p>
               <h3 className="dark-card__title">
-                Protection that works<br />across all of Canada.
+                At home. At the cottage.<br />Across the country. Always protected.
               </h3>
             </div>
           </motion.div>
@@ -60,7 +60,7 @@ export default function DarkCards() {
                       <path d="M10 1L12.5 7.5L19 8.5L14.5 13L15.8 19.5L10 16.5L4.2 19.5L5.5 13L1 8.5L7.5 7.5L10 1Z" stroke="var(--blue)" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
                     </svg>
                   ),
-                  text: 'Canadian owned and operated — serving Canadians only',
+                  text: 'Canadian owned and operated, serving Canadians only',
                 },
                 {
                   icon: (
@@ -78,7 +78,7 @@ export default function DarkCards() {
                       <line x1="8" y1="15.5" x2="12" y2="15.5" stroke="var(--blue)" strokeWidth="1.5" strokeLinecap="round"/>
                     </svg>
                   ),
-                  text: 'No landline needed — works on cellular anywhere in Canada',
+                  text: 'No landline needed. Works on cellular anywhere in Canada',
                 },
                 {
                   icon: (

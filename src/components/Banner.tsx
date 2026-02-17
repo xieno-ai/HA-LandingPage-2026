@@ -11,7 +11,7 @@ export default function Banner() {
     >
       <div className="banner__inner container">
         <span className="banner__text">
-          Canadian-owned & operated — 24/7 professional monitoring you can trust
+          Canadian-owned & operated. 24/7 professional monitoring across Canada
         </span>
         <a href="tel:18884114656" className="banner__text" style={{ fontWeight: 600, marginLeft: 12, whiteSpace: 'nowrap' }} onClick={() => trackPhoneClick('banner')}>
           Call 1-888-411-4656

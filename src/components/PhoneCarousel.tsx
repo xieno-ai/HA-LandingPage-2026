@@ -14,16 +14,16 @@ export default function PhoneCarousel() {
                 </div>
                 <div className="phone-section__screen-content">
                   <p className="phone-section__screen-question" style={{ background: '#e8f5e9', color: '#2e7d32' }}>
-                    Mom — All Clear
+                    Mom: All Clear
                   </p>
                   <div className="phone-section__screen-answer">
                     <p style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 4 }}>Recent Activity</p>
-                    <p>Movement detected at home — 3 min ago</p>
-                    <p>Daily check-in completed — 9:15 AM</p>
-                    <p>Medication reminder sent — 8:00 AM</p>
+                    <p>Movement detected at home - 3 min ago</p>
+                    <p>Daily check-in completed - 9:15 AM</p>
+                    <p>Medication reminder sent - 8:00 AM</p>
                     <p style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'var(--text-primary)', marginTop: 8, marginBottom: 4 }}>Device & Location</p>
-                    <p>Holo Pro — Battery 92% — Home</p>
-                    <p>Monitoring: Connected — Signal Strong</p>
+                    <p>Holo Pro - Battery 92% - Home</p>
+                    <p>Monitoring: Connected - Signal Strong</p>
                   </div>
                 </div>
                 <div className="phone-section__screen-bottom">
@@ -47,7 +47,7 @@ export default function PhoneCarousel() {
               Your family's safety hub, right in your pocket.
             </h2>
             <p className="phone-section__desc">
-              The Holo Alert caregiver app keeps your whole care circle connected. Track your loved one's real-time location, receive instant notifications if help is requested, view activity history, and message other caregivers — all from your phone. You can even use it for non-emergency check-ins when you just want to know they're okay.
+              The Holo Alert caregiver app keeps your whole care circle connected. Track your loved one's real-time location, receive instant notifications if help is requested, view activity history, and message other caregivers, all from your phone. You can even use it for non-emergency check-ins when you just want to know they're okay.
             </p>
             <div className="phone-section__actions">
               <a href="#how-it-works" className="phone-section__video-link">

@@ -66,7 +66,7 @@ export default function FallRisk() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.25 }}
             >
-              For Canadians over 65, falls are the leading cause of injury — but having a plan in place can make all the difference. Holo Alert connects you to 24/7 professional monitoring so help is there when it matters most.
+              For Canadians over 65, falls are the leading cause of injury. The difference between a close call and a crisis is how fast help arrives. Holo Alert connects you to 24/7 professional monitoring, so no one has to face a fall alone.
             </motion.p>
 
             <div className="fall-risk__stats">
@@ -84,6 +84,8 @@ export default function FallRisk() {
                 </motion.div>
               ))}
             </div>
+
+            <p className="fall-risk__source">Source: Public Health Agency of Canada</p>
           </div>
         </motion.div>
       </div>

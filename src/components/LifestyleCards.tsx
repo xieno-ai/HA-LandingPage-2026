@@ -4,7 +4,7 @@ const cards = [
   {
     image: '/lifestyle/independent.avif',
     title: 'Independence at home.',
-    subtitle: 'Stay in your home, keep your routines, and know that help is always one button press away.',
+    subtitle: 'Stay in your home, keep your routines, and know that help is always one button away.',
   },
   {
     image: '/lifestyle/family.avif',
@@ -14,7 +14,7 @@ const cards = [
   {
     image: '/lifestyle/confidence.avif',
     title: 'Confidence on the go.',
-    subtitle: 'Fall detection and GPS location work wherever you are — at home, in the garden, or out in the neighbourhood.',
+    subtitle: 'Fall detection and GPS location work wherever you are: at home, in the garden, or out in the neighbourhood.',
   },
 ]
 
@@ -35,10 +35,10 @@ export default function LifestyleCards() {
           variants={fadeUp}
         >
           <h2 className="lifestyle__title">
-            Safety that supports independence — not the other way around.
+            Safety that supports independence, not the other way around.
           </h2>
           <p className="lifestyle__desc">
-            Holo Alert is built around a simple idea: staying safe shouldn't mean giving up the life you've built. Seniors keep their routines. Families get the reassurance they need. Everyone breathes easier.
+            Staying safe shouldn't mean giving up the life you've built. Seniors keep their independence. Families stop worrying. And everyone sleeps a little better at night.
           </p>
         </motion.div>
 

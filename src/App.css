@@ -69,6 +69,7 @@ em {
   right: 0;
   z-index: 100;
   padding: 16px 0;
+  background: var(--bg);
   transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease), padding var(--duration) var(--ease);
 }
 
@@ -425,6 +426,13 @@ em {
   font-weight: 500;
   line-height: 1.5;
   color: var(--text-primary);
+}
+
+.fall-risk__source {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-style: italic;
 }
 
 /* ─── Lifestyle Cards ─── */
@@ -984,6 +992,14 @@ em {
 }
 .pricing__secondary-link:hover {
   color: var(--blue);
+}
+
+.pricing__risk-note {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-align: center;
 }
 
 /* ─── Video Loop ─── */

@@ -19,7 +19,7 @@ export default function Footer() {
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
               <a href="tel:18884114656" style={{ color: 'var(--text-primary)', fontWeight: 600 }} onClick={() => trackPhoneClick('footer')}>1-888-411-4656</a>
               <br />
-              <span style={{ fontSize: '0.75rem' }}>Available 24/7 — call or press your button anytime</span>
+              <span style={{ fontSize: '0.75rem' }}>Available 24/7. Call or press your button anytime</span>
             </p>
           </div>
         </div>

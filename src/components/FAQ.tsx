@@ -85,8 +85,8 @@ export default function FAQ() {
           <h2 className="faq__title">FAQs</h2>
           <p className="faq__subtitle">Your questions answered</p>
           <p className="faq__contact">
-            Can't find what you're looking for? Contact our{' '}
-            <a href="tel:18884114656" className="faq__contact-link" onClick={() => trackPhoneClick('faq')}>customer support team</a>
+            Can't find what you're looking for? Call our{' '}
+            <a href="tel:18884114656" className="faq__contact-link" onClick={() => trackPhoneClick('faq')}>care team</a>
           </p>
         </motion.div>
 

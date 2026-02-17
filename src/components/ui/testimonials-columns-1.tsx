@@ -3,6 +3,7 @@ import React from "react";
 export type Testimonial = {
   text: string;
   name: string;
+  location?: string;
 };
 
 export const TestimonialsColumn = (props: {
@@ -26,7 +27,7 @@ export const TestimonialsColumn = (props: {
       >
         {[0, 1].map((index) => (
           <React.Fragment key={index}>
-            {props.testimonials.map(({ text, name }, i) => (
+            {props.testimonials.map(({ text, name, location }, i) => (
               <div
                 className="testimonial-card rounded-3xl border border-border/60 shadow-sm w-full"
                 key={i}
@@ -41,8 +42,15 @@ export const TestimonialsColumn = (props: {
                 <div style={{ fontSize: "0.9375rem", lineHeight: 1.65, color: "var(--text-primary)" }}>
                   {text}
                 </div>
-                <div style={{ marginTop: "1.25rem", fontWeight: 600, fontSize: "0.875rem", color: "var(--text-primary)" }}>
-                  {name}
+                <div style={{ marginTop: "1.25rem" }}>
+                  <div style={{ fontWeight: 600, fontSize: "0.875rem", color: "var(--text-primary)" }}>
+                    {name}
+                  </div>
+                  {location && (
+                    <div style={{ fontSize: "0.8125rem", color: "var(--text-tertiary)", marginTop: 2 }}>
+                      {location}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
