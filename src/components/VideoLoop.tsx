@@ -1,11 +1,19 @@
 import { motion } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { useSectionView, trackVideoView } from '@/utils/tracking'
 
 const VIMEO_URL = 'https://player.vimeo.com/video/1164848214'
 
 export default function VideoLoop() {
   const [showIframe, setShowIframe] = useState(false)
   const sentinelRef = useRef<HTMLDivElement>(null)
+  const sectionViewRef = useSectionView('video')
+  const videoFired = useRef(false)
+
+  const mergedRef = useCallback((node: HTMLElement | null) => {
+    (sentinelRef as React.MutableRefObject<HTMLElement | null>).current = node;
+    (sectionViewRef as React.MutableRefObject<HTMLElement | null>).current = node
+  }, [sectionViewRef])
 
   useEffect(() => {
     const el = sentinelRef.current
@@ -14,6 +22,10 @@ export default function VideoLoop() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setShowIframe(true)
+          if (!videoFired.current) {
+            videoFired.current = true
+            trackVideoView()
+          }
           observer.disconnect()
         }
       },
@@ -24,7 +36,7 @@ export default function VideoLoop() {
   }, [])
 
   return (
-    <section className="video-loop section" ref={sentinelRef}>
+    <section className="video-loop section" ref={mergedRef}>
       <div className="video-loop__inner container">
         <motion.div
           className="video-loop__frame"

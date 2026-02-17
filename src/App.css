@@ -724,11 +724,12 @@ em {
   height: auto;
 }
 
-/* Map card — full-bleed background layout */
+/* Map card — light background with image */
 .dark-card--map {
   position: relative;
   justify-content: center;
   align-items: center;
+  background: #f0efed;
 }
 
 .dark-card__map-bg {
@@ -737,10 +738,17 @@ em {
   z-index: 0;
 }
 
+.dark-card__map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .dark-card__map-fade {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(23, 23, 23, 0.55) 0%, rgba(23, 23, 23, 0.85) 100%);
+  background: radial-gradient(ellipse at center, rgba(240, 239, 237, 0.7) 0%, rgba(240, 239, 237, 0.3) 50%, transparent 75%);
   z-index: 1;
   pointer-events: none;
 }
@@ -753,26 +761,13 @@ em {
 
 .dark-card--map .dark-card__label {
   font-size: 0.9375rem;
+  color: var(--text-secondary);
 }
 
 .dark-card--map .dark-card__title {
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   line-height: 1.2;
-}
-
-/* CanadaMap component */
-.canada-map {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.canada-map__svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  color: var(--text-primary);
 }
 
 /* Encrypted text display */

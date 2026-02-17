@@ -1,3 +1,5 @@
+import { useRef, useEffect } from 'react'
+
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[]
@@ -165,4 +167,121 @@ export function trackSectionView(sectionName: string) {
     event: 'section_view',
     section_name: sectionName,
   })
+}
+
+/** Header nav link clicks */
+export function trackNavClick(text: string, context: string) {
+  push({
+    event: 'nav_click',
+    nav_text: text,
+    nav_context: context,
+  })
+}
+
+/** Video lazy-load view */
+export function trackVideoView() {
+  push({
+    event: 'video_view',
+    video_title: 'Holo Alert Lifestyle',
+    video_provider: 'vimeo',
+  })
+}
+
+/** Scroll depth milestone */
+export function trackScrollDepth(percent: number) {
+  push({
+    event: 'scroll_depth',
+    scroll_percent: percent,
+  })
+}
+
+/** Engaged time milestone */
+export function trackEngagedTime(seconds: number) {
+  push({
+    event: 'engaged_time',
+    engaged_seconds: seconds,
+  })
+}
+
+/* ── Scroll depth tracking ── */
+
+export function initScrollDepthTracking() {
+  const milestones = [25, 50, 75, 90]
+  const fired = new Set<number>()
+
+  const onScroll = () => {
+    const scrollTop = window.scrollY
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight
+    if (docHeight <= 0) return
+    const percent = Math.round((scrollTop / docHeight) * 100)
+
+    for (const milestone of milestones) {
+      if (percent >= milestone && !fired.has(milestone)) {
+        fired.add(milestone)
+        trackScrollDepth(milestone)
+      }
+    }
+
+    if (fired.size === milestones.length) {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true })
+}
+
+/* ── Engaged time tracking (visibility-aware) ── */
+
+export function initEngagedTimeTracking() {
+  const milestones = [30, 60, 120, 180, 300]
+  let elapsed = 0
+  let milestoneIndex = 0
+  let lastTick = Date.now()
+  let timer: ReturnType<typeof setInterval> | null = null
+
+  function tick() {
+    if (document.hidden) {
+      lastTick = Date.now()
+      return
+    }
+    const now = Date.now()
+    elapsed += (now - lastTick) / 1000
+    lastTick = now
+
+    while (milestoneIndex < milestones.length && elapsed >= milestones[milestoneIndex]) {
+      trackEngagedTime(milestones[milestoneIndex])
+      milestoneIndex++
+    }
+
+    if (milestoneIndex >= milestones.length && timer) {
+      clearInterval(timer)
+    }
+  }
+
+  timer = setInterval(tick, 1000)
+}
+
+/* ── Section view hook (reusable) ── */
+
+export function useSectionView(sectionName: string) {
+  const ref = useRef<HTMLElement>(null)
+  const hasFired = useRef(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasFired.current) {
+          hasFired.current = true
+          trackSectionView(sectionName)
+        }
+      },
+      { threshold: 0.3 },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [sectionName])
+
+  return ref
 }

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Watch, PackageCheck, HeartPulse } from 'lucide-react'
+import { useSectionView } from '@/utils/tracking'
 
 const steps = [
   {
@@ -43,8 +44,10 @@ const fadeUp = {
 }
 
 export default function HowItWorks() {
+  const sectionRef = useSectionView('how_it_works')
+
   return (
-    <section className="how section" id="how-it-works">
+    <section className="how section" id="how-it-works" ref={sectionRef}>
       <div className="how__inner container">
         <motion.div
           className="how__header"

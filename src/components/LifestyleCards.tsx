@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useSectionView } from '@/utils/tracking'
 
 const cards = [
   {
@@ -24,8 +25,10 @@ const fadeUp = {
 }
 
 export default function LifestyleCards() {
+  const sectionRef = useSectionView('lifestyle')
+
   return (
-    <section className="lifestyle section">
+    <section className="lifestyle section" ref={sectionRef}>
       <div className="lifestyle__inner container">
         <motion.div
           className="lifestyle__header"

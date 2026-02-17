@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ShieldCheck, Clock, Star } from 'lucide-react'
-import { trackCtaClick } from '@/utils/tracking'
+import { trackCtaClick, useSectionView } from '@/utils/tracking'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,8 +26,11 @@ const itemVariants = {
 }
 
 export default function Hero() {
+  const sectionRef = useSectionView('hero')
+
   return (
     <motion.section
+      ref={sectionRef}
       className="hero-split"
       initial="hidden"
       animate="visible"

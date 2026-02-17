@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
-import { trackShopNow, trackGetQuote, trackSectionView, buildOutboundUrl } from '@/utils/tracking'
+import { trackShopNow, trackGetQuote, useSectionView, buildOutboundUrl } from '@/utils/tracking'
 
 const devices = [
   {
@@ -164,27 +164,6 @@ function ComparisonBars() {
   )
 }
 
-function useSectionView(sectionName: string) {
-  const ref = useRef<HTMLElement>(null)
-  const hasFired = useRef(false)
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasFired.current) {
-          hasFired.current = true
-          trackSectionView(sectionName)
-        }
-      },
-      { threshold: 0.3 },
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [sectionName])
-  return ref
-}
-
 export default function Pricing() {
   const sectionRef = useSectionView('pricing')
   return (
@@ -271,13 +250,7 @@ export default function Pricing() {
                     </svg>
                   </a>
 
-                  <a href="#" className="pricing__secondary-link" onClick={() => trackGetQuote(device.name)}>
-                    Or Get FREE Quote
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </a>
-                  <span className="pricing__risk-note">30-day money-back guarantee. Cancel anytime.</span>
+                  <span className="pricing__risk-note">Satisfaction guarantee</span>
                 </div>
               </HoverBorderGradient>
             </motion.div>

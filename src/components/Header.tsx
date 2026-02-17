@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { trackNavClick, trackPhoneClick } from '@/utils/tracking'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -23,7 +24,7 @@ export default function Header() {
 
         <nav className="header__nav">
           {navLinks.map((item) => (
-            <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="header__link">
+            <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="header__link" onClick={() => trackNavClick(item, 'desktop')}>
               {item}
             </a>
           ))}
@@ -52,12 +53,12 @@ export default function Header() {
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
                 className="header__mobile-link"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => { trackNavClick(item, 'mobile'); setMobileOpen(false) }}
               >
                 {item}
               </a>
             ))}
-            <a href="tel:18884114656" className="header__mobile-cta" onClick={() => setMobileOpen(false)}>
+            <a href="tel:18884114656" className="header__mobile-cta" onClick={() => { trackPhoneClick('header_mobile'); setMobileOpen(false) }}>
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path d="M16.5 12.69v2.5a1.67 1.67 0 01-1.82 1.67A16.5 16.5 0 011.14 3.32 1.67 1.67 0 012.8 1.5h2.5a1.67 1.67 0 011.67 1.43 10.7 10.7 0 00.58 2.35 1.67 1.67 0 01-.37 1.76l-1.06 1.06a13.33 13.33 0 005.78 5.78l1.06-1.06a1.67 1.67 0 011.76-.37 10.7 10.7 0 002.35.58 1.67 1.67 0 011.43 1.7z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

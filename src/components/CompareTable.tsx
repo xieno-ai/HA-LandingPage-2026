@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { trackCtaClick } from '@/utils/tracking'
+import { trackCtaClick, useSectionView } from '@/utils/tracking'
 
 type Row = {
   feature: string
@@ -68,11 +68,12 @@ const Dash = () => (
 )
 
 export default function CompareTable() {
+  const sectionRef = useSectionView('compare')
   const wrapperRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(wrapperRef, { once: true, margin: '-80px' })
 
   return (
-    <section className="compare section">
+    <section className="compare section" ref={sectionRef}>
       <div className="compare__inner container">
         <motion.div
           ref={wrapperRef}

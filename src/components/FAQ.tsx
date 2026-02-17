@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { trackFaqOpen, trackPhoneClick } from '@/utils/tracking'
+import { trackFaqOpen, trackPhoneClick, useSectionView } from '@/utils/tracking'
 
 const faqs = [
   {
@@ -70,10 +70,11 @@ function FAQItem({ faq, isOpen, onClick }: { faq: typeof faqs[0]; isOpen: boolea
 }
 
 export default function FAQ() {
+  const sectionRef = useSectionView('faq')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="faq section" id="faq">
+    <section className="faq section" id="faq" ref={sectionRef}>
       <div className="faq__inner container">
         <motion.div
           className="faq__sidebar"

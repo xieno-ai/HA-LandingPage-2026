@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { TriangleAlert, BedDouble, Activity } from 'lucide-react'
+import { useSectionView } from '@/utils/tracking'
 
 const stats = [
   {
@@ -22,8 +23,10 @@ const fadeUp = {
 }
 
 export default function FallRisk() {
+  const sectionRef = useSectionView('fall_risk')
+
   return (
-    <section className="fall-risk section">
+    <section className="fall-risk section" ref={sectionRef}>
       <div className="fall-risk__inner container">
         <motion.div
           className="fall-risk__card"

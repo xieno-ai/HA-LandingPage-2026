@@ -1,6 +1,7 @@
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import type { Testimonial } from "@/components/ui/testimonials-columns-1";
 import { motion } from "framer-motion";
+import { useSectionView } from "@/utils/tracking";
 
 const testimonials: Testimonial[] = [
   {
@@ -55,8 +56,10 @@ const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
+  const sectionRef = useSectionView('testimonials')
+
   return (
-    <section className="testimonials">
+    <section className="testimonials" ref={sectionRef}>
       <div className="container">
         <motion.div
           className="testimonials__header"

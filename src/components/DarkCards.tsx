@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { CanadaMap } from './ui/map'
+import { useSectionView } from '@/utils/tracking'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -8,8 +8,10 @@ const fadeUp = {
 
 
 export default function DarkCards() {
+  const sectionRef = useSectionView('dark_cards')
+
   return (
-    <section className="dark-cards section">
+    <section className="dark-cards section" ref={sectionRef}>
       <div className="dark-cards__inner container">
         <div className="dark-cards__grid">
           {/* Canada Coverage Card */}
@@ -20,12 +22,20 @@ export default function DarkCards() {
             viewport={{ once: true, margin: '-80px' }}
             variants={fadeUp}
           >
-            {/* Map fills entire card background */}
+            {/* Map image fills entire card background */}
             <div className="dark-card__map-bg">
-              <CanadaMap />
+              <img
+                src="/lifestyle/canmap.webp"
+                alt="3D relief map of Canada with glowing network points across major cities"
+                width={800}
+                height={450}
+                loading="lazy"
+                decoding="async"
+                className="dark-card__map-img"
+              />
             </div>
 
-            {/* Gradient fade so header text is readable */}
+            {/* Gradient fade so text is readable over the light image */}
             <div className="dark-card__map-fade" />
 
             {/* Text content overlaid on top */}
