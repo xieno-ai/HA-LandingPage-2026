@@ -3,9 +3,9 @@ import './App.css'
 import Header from './components/Header'
 import Banner from './components/Banner'
 import Hero from './components/Hero'
-import FallRisk from './components/FallRisk'
-import LifestyleCards from './components/LifestyleCards'
 
+const FallRisk = lazy(() => import('./components/FallRisk'))
+const LifestyleCards = lazy(() => import('./components/LifestyleCards'))
 const HowItWorks = lazy(() => import('./components/HowItWorks'))
 const DarkCards = lazy(() => import('./components/DarkCards'))
 const Pricing = lazy(() => import('./components/Pricing'))
@@ -22,9 +22,9 @@ export default function App() {
       <Banner />
       <main>
         <Hero />
-        <FallRisk />
-        <LifestyleCards />
         <Suspense>
+          <FallRisk />
+          <LifestyleCards />
           <HowItWorks />
           <DarkCards />
           <Pricing />

@@ -49,6 +49,9 @@
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --duration: 0.3s;
 
+  /* Font display fallback for slow connections */
+  font-display: swap;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

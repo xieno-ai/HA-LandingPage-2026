@@ -57,7 +57,7 @@ export default function LifestyleCards() {
               transition={{ delay: i * 0.1 }}
             >
               <div className="lifestyle__card-image">
-                <img src={card.image} alt={card.title} loading="lazy" width={400} height={420} />
+                <img src={card.image} alt={card.title} loading="lazy" decoding="async" width={400} height={420} />
                 <div className="lifestyle__card-overlay">
                   <h3 className="lifestyle__card-title">{card.title}</h3>
                   <p className="lifestyle__card-subtitle">{card.subtitle}</p>

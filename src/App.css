@@ -2,6 +2,33 @@
    HOLO — Component Styles
    ═══════════════════════════════════════════ */
 
+/* ─── Performance: Above-fold CSS animations ─── */
+@keyframes hero-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-clip-reveal {
+  from { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+  to { clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%); }
+}
+
+@keyframes banner-enter {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-split__anim-item,
+  .hero-split__image--clip,
+  .banner--animate {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%) !important;
+  }
+}
+
 /* ─── Shared ─── */
 .section-label {
   font-family: var(--font-mono);
@@ -167,6 +194,16 @@ em {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.header__mobile--open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .header__mobile-link {
@@ -200,6 +237,10 @@ em {
 .banner {
   margin-top: 60px;
   background: var(--blue);
+}
+
+.banner--animate {
+  animation: banner-enter 0.5s ease-out 0.2s both;
 }
 
 .banner__inner {
@@ -311,9 +352,27 @@ em {
 .hero-split__image {
   width: 50%;
   min-height: 500px;
-  background-size: cover;
-  background-position: center;
   align-self: stretch;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-split__image--clip {
+  animation: hero-clip-reveal 1.2s cubic-bezier(0, 0.55, 0.45, 1) 0.1s both;
+}
+
+.hero-split__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hero stagger animation items */
+.hero-split__anim-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-slide-up 0.5s ease-out both;
 }
 
 /* ─── Phone Section ─── */
@@ -516,6 +575,8 @@ em {
 /* ─── How It Works ─── */
 .how {
   padding: 80px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 
 .how__header {
@@ -679,6 +740,8 @@ em {
 /* ─── Dark Cards ─── */
 .dark-cards {
   padding: 20px 0 60px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 .dark-cards__grid {
@@ -804,6 +867,8 @@ em {
 /* ─── Pricing ─── */
 .pricing {
   padding: 80px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1200px;
 }
 
 .pricing__header {
@@ -1191,6 +1256,8 @@ em {
 /* ─── FAQ ─── */
 .faq {
   padding: 80px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 
 .faq__inner {
@@ -1298,6 +1365,8 @@ em {
 /* ─── Testimonials ─── */
 .testimonials {
   padding: 80px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 .testimonials__header {
@@ -1728,7 +1797,10 @@ em {
   .hero-split__image {
     width: 100%;
     min-height: 320px;
-    clip-path: none !important;
+  }
+  .hero-split__image--clip {
+    animation: none;
+    clip-path: none;
   }
   .hero-split__footer {
     flex-direction: column;

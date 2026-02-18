@@ -43,6 +43,8 @@ export default function FallRisk() {
                 className="fall-risk__image"
                 width={380}
                 height={507}
+                loading="lazy"
+                decoding="async"
               />
               <div className="fall-risk__image-badge">
                 <span className="fall-risk__badge-name">Pearl</span>
