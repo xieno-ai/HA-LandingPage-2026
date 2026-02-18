@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
-import { trackShopNow, trackGetQuote, useSectionView, buildOutboundUrl } from '@/utils/tracking'
+import { trackShopNow, useSectionView, buildOutboundUrl } from '@/utils/tracking'
 
 const devices = [
   {
